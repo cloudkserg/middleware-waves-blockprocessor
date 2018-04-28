@@ -100,10 +100,7 @@ const init = async function () {
 
 
   let endBlock = await syncCacheService.start(config.consensus.lastBlocksValidateAmount).catch((err) => {
-    if (_.get(err, 'code') === 0) 
-      log.info('nodes are down or not synced!');
-    else 
-      log.error(err);
+    _.get(err, 'code') === 0 ? log.info('nodes are down or not synced!') : log.error(err);
     process.exit(0);
   });
 
