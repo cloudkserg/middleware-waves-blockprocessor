@@ -18,6 +18,7 @@ const Block = new mongoose.Schema({
   hash: {type: String, unique: true, index: true}, //signature in block waves
   prevBlockHash: {type: String}, //reference in block waves  
   timestamp: {type: Date, index: true, required: true},
+  txs: [{type: String}],
 
   generator: {type: String},
   'nxt-consensus': {
